@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login to webkiosk</title>
+	<link rel="stylesheet" type="text/css" href="" />
+</head>
+<body>
+	<div class="heada">
+		<form id="logn">
+			<fieldset>
+				<legend>Login:</legend>
+				User: <select name="user_type" size="1">
+					<option value="admin">Admin</option>
+					<option value="teacher">Teacher</option>
+					<option value="non_staff">Non-Staff</option>
+					<option value="student">Student</option>
+				<script type="text/javascript">
+					let user_type = document.forms["logn"]["user_type"];
+					if(user_type == "student"){
+						window.onload = function(){
+							document.getElementById("field").innerHTML = 'Birthdate: <input type="date" name="DOB" />';
+						}
+					}
+				</script>
+				ID: <input type="text" name="id" />
+				Password: <input type="password" name="password" />
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>
