@@ -1,31 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Login to webkiosk</title>
-	<link rel="stylesheet" type="text/css" href="" />
-</head>
-<body>
-	<div class="heada">
-		<form id="logn">
-			<fieldset>
-				<legend>Login:</legend>
-				User: <select name="user_type" size="1">
-					<option value="admin">Admin</option>
-					<option value="teacher">Teacher</option>
-					<option value="non_staff">Non-Staff</option>
-					<option value="student">Student</option>
-				<script type="text/javascript">
-					let user_type = document.forms["logn"]["user_type"];
-					if(user_type == "student")
-						document.getElementById("dobc").style.display="block";
-					else
-						documen.getElementById("dobc").style.display="none";
-				</script>
-				ID: <input type="text" name="id" />
-				<div id="dobc">DOB: <input type="date" name="dob" /></div>
-				Password: <input type="password" name="password" />
-			</fieldset>
-		</form>
-	</div>
-</body>
+  <head>
+    <title>Login to webkiosk</title>
+    <link rel="stylesheet" type="text/css" href="" />
+    <script type="text/javascript">
+      function forDate() {
+        if (logn.user_type.value == "student") logn.dob.style.display = "block";
+        else logn.dob.style.display = "none";
+      }
+      function UserType_onchange() {
+        if (logn.user_type.value == "student") logn.dobc.value = "DOB";
+        else logn.dobc.value = "";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="heada">
+      <form id="logn" name="logn">
+        <fieldset style="margin-left:35%; margin-right:35%; padding-bottom: 40px;padding-top:40px">
+		  <legend>Login:</legend>
+		  <table
+  id="tabForm"
+  frame="box"
+  style="border-color:gray;margin-left:auto;margin-right:auto;"
+>
+<tr><td>
+		  User:</td>
+		  <td>
+          <select
+            name="user_type"
+            size="1"
+            onchange="UserType_onchange();forDate()"
+            onkeypress="return UserType_onchange()"
+          >
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+            <option value="teacher">Teacher</option>
+            <option value="non_staff">Non-Staff</option>
+		  </select></td></tr>
+		  <tr>
+		  <td>ID:</td><td><input type="text" name="id" /></td></tr>
+		  <tr>
+			  <td>
+          <input
+            readonly
+            name="dobc"
+            value="DOB"
+            id="dobc"
+            style="border:none;"
+		  /></td><td><input type="date" name="dob" id="dob" /></td>
+		</tr>
+		<tr>
+		  <td>
+			Password:</td>
+			<td>
+          <input type="password" name="password" /></td>
+		</tr>
+		</fieldset>
+      </form>
+    </div>
+  </body>
 </html>
