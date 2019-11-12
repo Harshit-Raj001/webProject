@@ -16,13 +16,13 @@
 					<option value="student">Student</option>
 				<script type="text/javascript">
 					let user_type = document.forms["logn"]["user_type"];
-					if(user_type == "student"){
-						window.onload = function(){
-							document.getElementById("field").innerHTML = 'Birthdate: <input type="date" name="DOB" />';
-						}
-					}
+					if(user_type == "student")
+						document.getElementById("dobc").style.display="block";
+					else
+						documen.getElementById("dobc").style.display="none";
 				</script>
 				ID: <input type="text" name="id" />
+				<div id="dobc">DOB: <input type="date" name="dob" /></div>
 				Password: <input type="password" name="password" />
 			</fieldset>
 		</form>
