@@ -1,5 +1,150 @@
-<table
-  id="tabForm"
-  frame="box"
-  style="border-color:gray;margin-left:auto;margin-right:auto;"
-></table>
+<html>
+  <head>
+    <title>Webkiosk Login</title>
+    <link rel="" href="" type="" />
+    <script type="text/javascript">
+      function UType_onchange() {
+        if (logn.Utype.value == "student") {
+          logn.txtEID.value = "Enrollment no.";
+          logn.txtDOB.style.display = "block";
+          logn.DOB.style.display = "block";
+        } else {
+          logn.txtEID.value = "Employee ID";
+          logn.txtDOB.style.display = "none";
+          logn.DOB.style.display = "none";
+        }
+      }
+
+      function chkEID() {
+        if (logn.EID.value == "") {
+          alert(logn.EID.value + "should not be empty");
+          logn.EID.focus();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="" class="header">
+      <form
+        id="logn"
+        name="logn"
+        stye="margin-left:auto; margin-right:auto; padding-top:10%"
+      >
+        <fieldset
+          id=""
+          style="margin-left:35%;margin-right:35%; padding-bottom:30px;padding-top:30px;"
+        >
+          <legend><h2>Login:</h2></legend>
+          <table
+            style="margin-left:auto;margin-right:auto"
+            id="tabForm"
+            name="tabForm"
+          >
+            <tr>
+              <td>
+                <b
+                  ><input
+                    readonly
+                    id="txtUtype"
+                    name="txtUtype"
+                    value="User"
+                    style="border-style:none"
+                /></b>
+              </td>
+              <td>
+                <select
+                  id="Utype"
+                  name="Utype"
+                  size="1"
+                  onchange="UType_onchange()"
+                  onkeypress="return UType_onchange()"
+                >
+                  <option value="student">Student</option>
+                  <option value="admin">Admin</option>
+                  <option value="teacher">Teacher</option>
+                  <option value="non_staff">Non-Staff</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b
+                  ><input
+                    readonly
+                    id="txtEID"
+                    name="txtEID"
+                    value="Enrollment no."
+                    style="border-style:none"
+                /></b>
+              </td>
+              <td>
+                <input type="text" id="EID" name="EID" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b
+                  ><input
+                    readonly
+                    id="txtDOB"
+                    name="txtDOB"
+                    value="DOB"
+                    style="border-style:none"
+                /></b>
+              </td>
+              <td>
+                <input
+                  type="date"
+                  id="DOB"
+                  name="DOB"
+                  onclick="return chkEID()"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <b
+                  ><input
+                    readonly
+                    id="txtpass"
+                    name="txtpass"
+                    value="Password"
+                    style="border-style:none"
+                /></b>
+              </td>
+              <td>
+                <input
+                  type="password"
+                  id="pass"
+                  name="pass"
+                  onclick="return chkEID()"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input
+                  type="submit"
+                  value="SUBMIT"
+                  id="BTNSubmit"
+                  name="BTNSubmit"
+                  onclick="return validation()"
+                  onsubmit="return valPass()"
+                />
+              </td>
+              <td>
+                <input
+                  type="reset"
+                  value="RESET"
+                  id="BTNReset"
+                  name="BTNReset"
+                />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
