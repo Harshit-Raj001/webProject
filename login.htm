@@ -14,6 +14,26 @@
           logn.DOB.style.display = "none";
         }
       }
+      function validation(){
+        if(logn.EID.value == ""){
+          alert(logn.txtEID.value + "should not be blank");
+          logn.EID.focus();
+          return(false);
+        }
+        if(logn.UType.value == "student"){
+          if(logn.DOB.value == ""){
+            alert("DOB should not be blank");
+            logn.DOB.focus();
+            return(false);
+          }
+        }
+        if(logn.pass.value == ""){
+          alert("Password should not be blank");
+          logn.pass.focus();
+          return(false);
+        }
+        }
+      }
     </script>
   </head>
   <body>
@@ -22,6 +42,8 @@
         id="logn"
         name="logn"
         stye="margin-left:auto; margin-right:auto; padding-top:10%"
+        method="POST"
+        action="login.php"
       >
         <fieldset
           id=""
