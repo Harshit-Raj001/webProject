@@ -1,3 +1,5 @@
+<html>
+<body>
 <?
     $utype = $eid =$dob = $pass = "";
     if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -34,21 +36,25 @@
         $qr = $sql_conn->query($qq);
         if($qr->num_rows == 0){
             //user details incorrect error on login page
-            die("Details might be incorrect");
+            echo "User details might be incorrect <a href='C:\Users\tush\Documents\GitHub\webProject\login.htm'>go back</a>";
+            die;
         }
         else{
-            //open students access page
+            header("Location: C:\Users\tush\Documents\GitHub\webProject\temp.htm");
+            exit;
         }
     }
     if($utype == "admin"){
         $qq = "select fname from admin where e_id=$eid and Password=$pass";
         $qr = $sql_conn->query($qq);
-        if($qr->numm_row == 0){
+        if($qr->num_rows == 0){
             //user details incorrect error on login page
-            die("Details might be incorrect");
+            echo "User details might be incorrect <a href='C:\Users\tush\Documents\GitHub\webProject\login.htm'>go back</a>";
+            die;
         }
         else{
-            //open admin's access page
+            header("Location: C:\Users\tush\Documents\GitHub\webProject\temp.htm");
+            exit;
         }
     }
     if($utype == "teacher"){
@@ -56,10 +62,12 @@
         $qr = $sql_conn->query($qq);
         if($qr->num_rows == 0){
             //user details incorrect error on login page
-            die("Details might be incorrect");
+            echo "User details might be incorrect <a href='C:\Users\tush\Documents\GitHub\webProject\login.htm'>go back</a>";
+            die;
         }
         else{
-            //open teacher's acccess page
+            header("Location: C:\Users\tush\Documents\GitHub\webProject\temp.htm");
+            exit;
         }
     }
     if($utype == "non_staff"){
@@ -67,11 +75,15 @@
         $qr = $sql_conn->query($qq);
         if($qr->num_rows == 0){
             //user details incorrect error on login page
-            die("Details might be incorrect");
+            echo "User details might be incorrect <a href='C:\Users\tush\Documents\GitHub\webProject\login.htm'>go back</a>";
+            die;
         }
         else{
-            //open non_staff's access page
+            header("Location: C:\Users\tush\Documents\GitHub\webProject\temp.htm");
+            exit;
         }
     }
     $sql_conn->close();
 ?>
+</body>
+</html>
