@@ -1,9 +1,9 @@
 <html>
 <body>
-<?
+<?php
     $utype = $eid =$dob = $pass = "";
     if($_SERVER["REQUEST_METHOD"]=="POST"){
-        $utype = $_POST["UType"];
+        $utype = $_POST["Utype"];
         $eid = $_POST["EID"];
         if($utype == "student"){
             $dob = $_POST["DOB"];

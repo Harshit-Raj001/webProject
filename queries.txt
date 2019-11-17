@@ -1,82 +1,25 @@
 create database school_db_a;
 
 create table admin(
-	e_id int(4) primary,
-	fname varchar(20),
-	lname varchar(30),
-	phone_no int(10) unique,
-	address varchar(100),
-	email varchar(50),
-	date_of_joining date
-);
+	e_id int(4) primary,fname varchar(20),lname varchar(30),phone_no int(10) unique,address varchar(100),emai varchar(50),date_of_joining date);
 
-create table teacher(
-	e_id int(4) primary,
-	fname varchar(20),
-	lname varchar(30),
-	phone_no int(10) unique,
-	address varchar(100),
-	email varchar(50),
-	date_of_joining date
-);
+create table teacher(e_id int(4) primary,fname varchar(20),lname varchar(30),phone_no int(10) unique,address varchar(100),email varchar(50),date_of_joining date);
 
-create table t_att(
-	e_id int(4),
-	idate date,
-	fname varchar(20),
-	lname varchar(30)
-);
+create table t_att(e_id int(4),idate date,fname varchar(20),lname varchar(30));
 
-create sub_class(
-	e_id int(4),
-	class varchar(5),
-	subject varchar(20)
-);
+create sub_class(e_id int(4),class varchar(5),subject varchar(20));
 
 alter table sub_class add primary key(class, subject);
 
-create table student(
-	s_id int(8),
-	fname varchar(20),
-	lname varchar(30),
-	phone_no int(10) unique,
-	address varchar(100),
-	email varchar(50),
-	bdate date,
-	class varchar(5)
-);
+create table student(s_id int(8),fname varchar(20),lname varchar(30),phone_no int(10) unique,address varchar(100),email varchar(50),bdate date,class varchar(5));
 
-create table s_att(
-	s_id int(8),
-	fname varchar(20),
-	lname varchar(30),
-	idate date
-);
+create table s_att(s_id int(8),fname varchar(20),lname varchar(30),idate date);
 
-create table marks(
-	s_id varchar(8),
-	subject varchar(20),
-	t1 int(3),
-	t2 int(3),
-	t3 int(3)
-);
+create table marks(s_id varchar(8),subject varchar(20),t1 int(3),t2 int(3),t3 int(3));
 
-create table non_staff(
-	e_id int(4) primary,
-	fname varchar(20),
-	lname varchar(30),
-	phone_no int(10) unique,
-	address varchar(100),
-	email varchar(50),
-	date_of_joining date
-);
+create table non_staff(e_id int(4) primary,fname varchar(20),lname varchar(30),phone_no int(10) unique,address varchar(100),email varchar(50),date_of_joining date);
 
-create table ns_att(
-	e_id int(4),
-	fname varchar(20),
-	lname varchar(30),
-	idate date
-);
+create table ns_att(e_id int(4),fname varchar(20),lname varchar(30),idate date);
 
 insert into admin
 values(0001, "Aman", "Jakhetiya", 1111111111, "XYZ street, abc city", "aman1@", 2019-8-10);
