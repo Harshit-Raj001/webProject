@@ -3,21 +3,10 @@
     <title></title>
   </head>
   <body>
-    <table>
-      <tr>
-        <td>Name:</td>
-        <td>
-          <?php
-                $sql_conn = new mysqli("localhost", "root", "", "web_dev_project");
-                if($sql_conn->connect_error){ die("Connection
-          failed".$sql_conn->connect_error); } ?>
-        </td>
-      </tr>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
-      <tr></tr>
-    </table>
+    <?php
+        include();
+        $sql=new mysqli("localhost", "root", "", "web_dev_project");
+        if($sql->connect_error) die("Connection error".$sql->connect_error);
+    echo ?>
   </body>
 </html>
