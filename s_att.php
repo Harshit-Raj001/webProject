@@ -1,5 +1,5 @@
 <?php
-    include("logincopy.htm");
+    include("login.htm");
     $s=$_POST["EID"];
     $con=mysqli_connect("localhost","root","","web_dev_project");
     if (!$con)
