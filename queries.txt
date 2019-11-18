@@ -1,32 +1,91 @@
-create database school_db_a;
-
+create DATABASE web_dev_project;
+use web_dev_project;
 create table admin(
-	e_id int(4) primary,fname varchar(20),lname varchar(30),phone_no int(10) unique,address varchar(100),emai varchar(50),date_of_joining date);
-
-create table teacher(e_id int(4) primary,fname varchar(20),lname varchar(30),phone_no int(10) unique,address varchar(100),email varchar(50),date_of_joining date);
-
-create table t_att(e_id int(4),idate date,fname varchar(20),lname varchar(30));
-
-create sub_class(e_id int(4),class varchar(5),subject varchar(20));
-
-alter table sub_class add primary key(class, subject);
-
-create table student(s_id int(8),fname varchar(20),lname varchar(30),phone_no int(10) unique,address varchar(100),email varchar(50),bdate date,class varchar(5));
-
-create table s_att(s_id int(8),fname varchar(20),lname varchar(30),idate date);
-
-create table marks(s_id varchar(8),subject varchar(20),t1 int(3),t2 int(3),t3 int(3));
-
-create table non_staff(e_id int(4) primary,fname varchar(20),lname varchar(30),phone_no int(10) unique,address varchar(100),email varchar(50),date_of_joining date);
-
-create table ns_att(e_id int(4),fname varchar(20),lname varchar(30),idate date);
+	e_id int(4),
+    pass varchar(20),
+    fname varchar(20),
+    lname varchar(30),
+    phone_no int(10) unique,
+    address varchar(100),
+    email varchar(50),
+    date_of_joining date
+);
+create table teacher(
+	e_id int(4),
+    pass varchar(20),
+    fname varchar(20),
+    lname varchar(30),
+    phone_no int(10) unique,
+    address varchar(100),
+    email varchar(50),
+    date_of_joining date
+);
+create table non_staff(
+	e_id int(4),
+    pass varchar(20),
+    fname varchar(20),
+    lname varchar(30),
+    phone_no int(10) unique,
+    address varchar(100),
+    email varchar(50),
+    date_of_joining date
+);
+create table student(
+	s_id int(4),
+    pass varchar(20),
+    fname varchar(20),
+    lname varchar(30),
+    phone_no int(10) unique,
+    address varchar(100),
+    email varchar(50),
+    DOB date
+);
+create table t_att(
+    e_id int(4),
+    fname varchar(20),
+    lname varchar(20),
+    attDate date,
+    status int(1)
+);
+create table ns_att(
+    e_id int(4),
+    fname varchar(20),
+    lname varchar(20),
+    attDate date,
+    status int(1)
+);
+create table s_att(
+    s_id int(4),
+    fname varchar(20),
+    lname varchar(20),
+    attDate date,
+    status int(1)
+);
+create table subClass(
+    e_id int(4),
+    subject varchar(20),
+    class varchar(10)
+);
+create table marks(
+    s_id int(4),
+    subject varchar(20),
+    score decimal(3,2)
+);
+alter table admin add primary key (e_id);
+alter table teacher add primary key (e_id);
+alter table non_staff add primary key (e_id);
+alter table student add primary key (s_id);
+alter table t_att add foreign key (e_id) references teacher(e_id);
+alter table ns_att add foreign key (e_id) references non_staff(e_id);
+alter table s_att add foreign key (s_id) references student(s_id);
+alter table subClass add primary key (subject, class);
+alter table marks add primary key (s_id, subject);
 
 insert into admin
-values(0001, "Aman", "Jakhetiya", 1111111111, "XYZ street, abc city", "aman1@", 2019-8-10);
+values(101,"aman","Aman","Jhaketiya",1111111111,"XYZ","aman@nomail.com","12-8-19");
 insert into admin
-values(0001, "Harshit", "Rajput", 0000000000, "QST street, pqr city", "zack0@", 2019-8-10);
+values(102,"zack","Harshit","Rajput",1111111111,"YZX","zack@nomail.com","12-8-19");
 insert into admin
-values(0001, "Shashank", "Madhwal", 2222222222, "XYZ street, pqr city", "shikku2@", 2019-8-10);
+values(103,"shank","Shashank","Madhwal",1111111111,"ZXY","shank@nomail.com","12-8-19");
 insert into admin
-values(0001, "Yash", "Mangal", 3333333333, "AVC street, nqr city", "yash3@", 2019-8-10);
-
+values(104,"yash","Yash","Mangal",1111111111,"XYZ","yash@nomail.com","12-8-19");
