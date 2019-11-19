@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <title></title>
+    <style>
+      .formWrap > tr {
+        padding-bottom: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="formWrap">
+      <form
+        method="POST"
+        action='addNS.php'
+        style="margin-left:auto;margin-right:auto;"
+      >
+        <fieldset
+          style="margin-left:35%;margin-right:35%; padding-bottom:30px;padding-top:30px;"
+        >
+          <legend style="font-size:22px">User details:</legend>
+          <table
+            style="margin-left:auto;margin-right:auto;"
+            name="tabAddT"
+            id="tabAddT"
+          >
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txteid"
+                  id="txteid"
+                  value="Employee ID"
+                  style="border:none;font-size:20px;"
+                />
+              </td>
+              <td>
+                <input type="text" name="eid" id="eid" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txtName"
+                  id="txtName"
+                  value="Name"
+                  style="border:none;font-size:20px;"
+                />
+              </td>
+              <td>
+                <input type="text" name="fname" id="fname" placeholder="First name"/>
+                <td><input type="text" name="lname" id="lname" placeholder="last name"/></td>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txtpass"
+                  id="txtpass"
+                  value="Password"
+                  style="border:none;font-size:20px;"
+                />
+              </td>
+              <td>
+                <input type="password" name="pass" id="pass" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txtmail"
+                  id="txtmail"
+                  value="Email"
+                  style="border:none;font-size:20px;"
+                />
+              </td>
+              <td>
+                <input type="text" name="mail" id="mail" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txtpno"
+                  id="txtpno"
+                  value="Phone no"
+                  style="border:none;font-size:20px;"
+                />
+              </td>
+              <td>
+                <input type="text" name="pno" id="pno" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txtadd"
+                  id="txtadd"
+                  value="Address"
+                  style="border:none;font-size:20px;"
+                />
+              </td>
+              <td>
+                <input type="text" name="addrss" id="addrss" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txtdoj"
+                  id="txtdoj"
+                  value="Date of Joining"
+                  style="border:none;font-size:20px;"
+                />
+              </td>
+              <td>
+                <input type="date" name="doj" id="doj" />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="submit" name="btnSub" id="btnSub" value="SUBMIT" />
+              </td>
+              <td>
+                <input type="reset" name="btnRes" id="btnRes" value="RESET" />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

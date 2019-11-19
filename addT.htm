@@ -1,23 +1,23 @@
 <html>
   <head>
     <title></title>
-    <link rel="stylesheet" href="" />
+    <style>
+      .formWrap > tr {
+        padding-bottom: 1em;
+      }
+    </style>
   </head>
   <body>
-    <?php
-        $sql = new mysqli("localhost", "root", "", "web_dev_project");
-        $qq = "insert into teacher values($_POST['eid'], $_POST['pass'], $_POST['fname'], $_POST['lname'], $_POST['pno'], $_POST['addrss'], $_POST['mail'], $_POST['doj']);";
-        $qr = $sql->query($qq); $sql->close(); ?>
-    <div>
+    <div class="formWrap">
       <form
         method="POST"
-        action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>'
+        action='addT.php'
         style="margin-left:auto;margin-right:auto;"
       >
         <fieldset
           style="margin-left:35%;margin-right:35%; padding-bottom:30px;padding-top:30px;"
         >
-          <legend>User details:</legend>
+          <legend style="font-size:22px">User details:</legend>
           <table
             style="margin-left:auto;margin-right:auto;"
             name="tabAddT"
@@ -30,7 +30,7 @@
                   name="txteid"
                   id="txteid"
                   value="Employee ID"
-                  style="border:none"
+                  style="border:none;font-size:20px;"
                 />
               </td>
               <td>
@@ -44,12 +44,12 @@
                   name="txtName"
                   id="txtName"
                   value="Name"
-                  style="border:none"
+                  style="border:none;font-size:20px;"
                 />
               </td>
               <td>
-                <input type="text" name="fname" id="fname" />
-                <input type="text" name="lname" id="lname" />
+                <input type="text" name="fname" id="fname" placeholder="First name"/>
+                <td><input type="text" name="lname" id="lname" placeholder="last name"/></td>
               </td>
             </tr>
             <tr>
@@ -59,7 +59,7 @@
                   name="txtpass"
                   id="txtpass"
                   value="Password"
-                  style="border:none"
+                  style="border:none;font-size:20px;"
                 />
               </td>
               <td>
@@ -73,7 +73,7 @@
                   name="txtmail"
                   id="txtmail"
                   value="Email"
-                  style="border:none"
+                  style="border:none;font-size:20px;"
                 />
               </td>
               <td>
@@ -87,7 +87,7 @@
                   name="txtpno"
                   id="txtpno"
                   value="Phone no"
-                  style="border:none"
+                  style="border:none;font-size:20px;"
                 />
               </td>
               <td>
@@ -101,7 +101,7 @@
                   name="txtadd"
                   id="txtadd"
                   value="Address"
-                  style="border:none"
+                  style="border:none;font-size:20px;"
                 />
               </td>
               <td>
@@ -114,8 +114,8 @@
                   readonly
                   name="txtdoj"
                   id="txtdoj"
-                  value="Date of joining"
-                  style="border:none"
+                  value="Date of Joining"
+                  style="border:none;font-size:20px;"
                 />
               </td>
               <td>
