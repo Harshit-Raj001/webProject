@@ -7,7 +7,7 @@
     <?php
         $sql = new mysqli("localhost", "root", "", "web_dev_project");
         $qq = "insert into teacher values($_POST['eid'], $_POST['pass'], $_POST['fname'], $_POST['lname'], $_POST['pno'], $_POST['addrss'], $_POST['mail'], $_POST['doj']);";
-        $qr = $sql->query($qq); ?>
+        $qr = $sql->query($qq); $sql->close(); ?>
     <div>
       <form
         method="POST"
