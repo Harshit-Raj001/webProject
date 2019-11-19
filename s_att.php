@@ -13,7 +13,7 @@
         echo "<tr><td>".$row["attDate"]."</td>"."<td>".$row["status"]."</td></tr>";
     }
     echo "</table>";
-    $con.close();
+    mysqli_close($con);
     ?>
  
  
