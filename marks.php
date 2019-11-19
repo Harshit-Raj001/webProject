@@ -1,7 +1,7 @@
 <?php
    include("login.php");
    $s=$_POST["EID"];
-   $con=mysqli_connect("localhsot","root","","web_dev_project");
+   $con=mysqli_connect("localhost","root","","web_dev_project");
    if(!$con)
    {
        die("could not connect");
