@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;  /* The height is 400 pixels */
+        width: 100%;  /* The width is the width of the web page */
+       }
+    </style>
+  </head>
+  <body>
+    <h3 style="margin-left:auto;margin-right:auto;color: blue;">Find Your Way Out</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: 28.5192, lng: 77.3653};
+  // The map, centered at Uluru
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 15, center: uluru});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: uluru, map: map});
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key (which is not needed for this tutorial)
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=
+    AIzaSyBMp_bWS5t3HIjjePHMOV85wtASm2c-77E
+    &callback=initMap">
+    </script>
+    <ul class="footer-add">
+        <li><img src="address.jpg" width="37" height="38" alt="JIIT">A-10, Sector-62, ,Noida-201 309, <br>
+        Uttar Pradesh, India.</li>
+        <li><img src="mobile-email.jpg" width="37" height="38" alt="JIIT"><span>24X7 Helpline No</span> <br>
+        1-911-2024-00973</li>
+        <li><img src="email-sign.jpg" width="37" height="38" alt="JIIT"><a onclick="ga('send', 'event', 'Webadmin ', 'click', 'jiit');" href="mailto:webadmin@jiit.ac.in">webadmin@jiit.ac.in</a>
+        </li>
+        </ul>
+  </body>
+</html>
