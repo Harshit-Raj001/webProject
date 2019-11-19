@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <?php
+        $sql = new mysqli("localhost", "root", "", "web_dev_project");
+        $qq = "insert into teacher values($_POST['eid'], $_POST['pass'], $_POST['fname'], $_POST['lname'], $_POST['pno'], $_POST['addrss'], $_POST['mail'], $_POST['doj']);";
+        $qr = $sql->query($qq); $sql->close(); ?>
+    <div>
+      <form
+        method="POST"
+        action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>'
+        style="margin-left:auto;margin-right:auto;"
+      >
+        <fieldset
+          style="margin-left:35%;margin-right:35%; padding-bottom:30px;padding-top:30px;"
+        >
+          <legend>User details:</legend>
+          <table
+            style="margin-left:auto;margin-right:auto;"
+            name="tabAddT"
+            id="tabAddT"
+          >
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txteid"
+                  id="txteid"
+                  value="Employee ID"
+                  style="border:none"
+                />
+              </td>
+              <td>
+                <input type="text" name="eid" id="eid" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txtName"
+                  id="txtName"
+                  value="Name"
+                  style="border:none"
+                />
+              </td>
+              <td>
+                <input type="text" name="fname" id="fname" />
+                <input type="text" name="lname" id="lname" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txtpass"
+                  id="txtpass"
+                  value="Password"
+                  style="border:none"
+                />
+              </td>
+              <td>
+                <input type="password" name="pass" id="pass" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txtmail"
+                  id="txtmail"
+                  value="Email"
+                  style="border:none"
+                />
+              </td>
+              <td>
+                <input type="text" name="mail" id="mail" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txtpno"
+                  id="txtpno"
+                  value="Phone no"
+                  style="border:none"
+                />
+              </td>
+              <td>
+                <input type="text" name="pno" id="pno" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txtadd"
+                  id="txtadd"
+                  value="Address"
+                  style="border:none"
+                />
+              </td>
+              <td>
+                <input type="text" name="addrss" id="addrss" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input
+                  readonly
+                  name="txtdoj"
+                  id="txtdoj"
+                  value="Date of joining"
+                  style="border:none"
+                />
+              </td>
+              <td>
+                <input type="date" name="doj" id="doj" />
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <input type="submit" name="btnSub" id="btnSub" value="SUBMIT" />
+              </td>
+              <td>
+                <input type="reset" name="btnRes" id="btnRes" value="RESET" />
+              </td>
+            </tr>
+          </table>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>
