@@ -1,5 +1,5 @@
 <?php
-    include("login.php");
+    //include("login.php");
     if(!isset($_SESSION))
         session_start();
     $uid = $_SESSION['eid'];
