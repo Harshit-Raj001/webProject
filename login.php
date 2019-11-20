@@ -15,45 +15,29 @@
     if($sql_conn->connect_error){
         die("connection failed: ".$sql_conn->connect_error);
     }
-    if($utype == "student"){
-        /*
-        $qq = "select Password, bdate from student where s_id = $eid";
-        $qr = $sql_conn->query($qq);
-        if($qr->num_rows == 0){
-            //user not found error in the login page
-            die("user not found");
-        }
-        
-        $tup = $qr->fetch_assoc()
-        if($tup["Password"]===$pass && $tup["bdate"]==$dob){
-            //open student's access page
-        }
-        else{
-            //pass or dob is incorrect
-            die("Details might be incorrect");
-        }*/
+    if($utype == "student"){        
         $qq = "select fname from student where s_id=$eid and Password=$pass and bdate=$dob";
         $qr = $sql_conn->query($qq);
         if($qr->num_rows == 0){
             //user details incorrect error on login page
-            echo "User details might be incorrect <a href='C:\Users\tush\Documents\GitHub\webProject\login.htm'>go back</a>";
+            echo "User details might be incorrect <a href='login.htm'>go back</a>";
             die;
         }
         else{
-            header("Location: C:\Users\tush\Documents\GitHub\webProject\temp.htm");
+            header("Location: student_main.htm");
             exit;
         }
     }
     if($utype == "admin"){
         $qq = "select fname from admin where e_id=$eid and Password=$pass";
         $qr = $sql_conn->query($qq);
-        if($qr->num_rows == 0){
+        if(!$qr){
             //user details incorrect error on login page
-            echo "User details might be incorrect <a href='C:\Users\tush\Documents\GitHub\webProject\login.htm'>go back</a>";
+            echo "User details might be incorrect <a href='login.htm'>go back</a>";
             die;
         }
         else{
-            header("Location: C:\Users\tush\Documents\GitHub\webProject\temp.htm");
+            header("Location: admin_main.htm");
             exit;
         }
     }
@@ -62,11 +46,11 @@
         $qr = $sql_conn->query($qq);
         if($qr->num_rows == 0){
             //user details incorrect error on login page
-            echo "User details might be incorrect <a href='C:\Users\tush\Documents\GitHub\webProject\login.htm'>go back</a>";
+            echo "User details might be incorrect <a href='login.htm'>go back</a>";
             die;
         }
         else{
-            header("Location: C:\Users\tush\Documents\GitHub\webProject\temp.htm");
+            header("Location: teacher_main.htm");
             exit;
         }
     }
@@ -75,11 +59,11 @@
         $qr = $sql_conn->query($qq);
         if($qr->num_rows == 0){
             //user details incorrect error on login page
-            echo "User details might be incorrect <a href='C:\Users\tush\Documents\GitHub\webProject\login.htm'>go back</a>";
+            echo "User details might be incorrect <a href='login.htm'>go back</a>";
             die;
         }
         else{
-            header("Location: C:\Users\tush\Documents\GitHub\webProject\temp.htm");
+            header("Location: non_staff_main.htm");
             exit;
         }
     }
