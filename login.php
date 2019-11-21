@@ -17,19 +17,19 @@
         die("connection failed: ".$sql_conn->connect_error);
     }
     if($utype == "student"){        
-        $qq = "select fname from student where s_id=$eid and Password=$pass and bdate=$dob";
-        $qr = $sql_conn->query($qq);
+        $qq = "select fname from student where s_id=$eid and pass='$pass' and DOB='$dob'";
+        $qr = $sql_conn->query($qq) or die($sql_conn->error);
         $_SESSION['eid'] = $eid;
         $_SESSION['user'] = $utype;
-        $qr = $sql->fetch_assoc();
-        if($qr->num_rows == 0){
+        $qr = $qr->fetch_assoc();
+        if($qr['fname']){
+            header("Location: student_main.htm");
+            exit;
+        }
+        else{
             //user details incorrect error on login page
             echo "User details might be incorrect <a href='login.htm'>go back</a>";
             die;
-        }
-        else{
-            header("Location: student_main.htm");
-            exit;
         }
     }
     if($utype == "admin"){
@@ -48,31 +48,33 @@
         }
     }
     if($utype == "teacher"){
-        $qq = "select fname from teacher where e_id=$eid and Password=$pass";
-        $qr = $sql_conn->query($qq);
+        $qq = "select fname from teacher where e_id=$eid and pass='$pass'";
+        $qr = $sql_conn->query($qq) or die($sql_conn->error);
         $_SESSION['eid'] = $eid;$_SESSION['user'] = $utype;
-        if($qr->num_rows == 0){
-            //user details incorrect error on login page
-            echo "User details might be incorrect <a href='login.htm'>go back</a>";
-            die;
-        }
-        else{
+        $row = $qr->fetch_assoc();
+        if($row['fname']){
             header("Location: teacher_main.htm");
             exit;
         }
-    }
-    if($utype == "non_staff"){
-        $qq = "select fname from non_staff where e_id=$eid and Password=$pass";
-        $qr = $sql_conn->query($qq);
-        $_SESSION['eid'] = $eid;$_SESSION['user'] = $utype;
-        if($qr->num_rows == 0){
+        else{
             //user details incorrect error on login page
             echo "User details might be incorrect <a href='login.htm'>go back</a>";
             die;
         }
-        else{
+    }
+    if($utype == "non_staff"){
+        $qq = "select fname from non_staff where e_id=$eid and pass='$pass'";
+        $qr = $sql_conn->query($qq) or die($sql_conn->error);
+        $_SESSION['eid'] = $eid;$_SESSION['user'] = $utype;
+        $row = $qr->fetch_assoc();
+        if($row['fname']){
             header("Location: non_staff_main.htm");
             exit;
+        }
+        else{
+            //user details incorrect error on login page
+            echo "User details might be incorrect <a href='login.htm'>go back</a>";
+            die;
         }
     }
     $sql_conn->close();
