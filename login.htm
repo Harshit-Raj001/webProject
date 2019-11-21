@@ -42,20 +42,81 @@
         }
       }
     </script>
+     <style>
+         body{
+             margin: 0;
+             padding:0;
+             background-image: url("school.jpg");
+             background-repeat: no-repeat;
+             background-size: cover;
+             
+            
+             
+         }
+        .header{
+           
+          
+           margin-left: auto;
+           margin-right:auto;
+           margin-top: auto;
+           vertical-align: 50%;
+           width: 450px;
+           height: 500px;
+           padding: 80px 40px;
+           background: rgba(0,0,0,0.6);
+        }
+        .avatar{
+
+            position:absolute;
+            width:80px;
+            height:80px;
+            border-radius:50%;
+            overflow:hidden;
+            top: calc(-80px/2);
+            left: calc(50% - 40px);
+
+        }
+        .contact-form input[ type=submit ],.contact-form input[ type=reset]{
+            height: 30px;
+            color:#fff;
+            font-size: 15 px;
+            background: red;
+            cursor: pointer;
+           
+            border: none;
+            outline: none;
+            margin-top: 15%;
+
+        }
+        .contact-form #txtEID,#txtDOB,#txtpass,#txtUtype{
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 35 px;
+            color:#fff;
+            font-size:15 px;
+
+        }
+      
+
+        
+    </style>
   </head>
   <body>
     <div class="header">
+        <img src="avatar.jpg" alt="" class="avatar">
       <form
         id="logn"
         name="logn"
-        style="margin-left:auto; margin-right:auto; padding-top:10%"
         method="POST"
+        class="contact-form"
         action="http://localhost/wProject/login.php"
       >
-        <fieldset
-          style="margin-left:35%;margin-right:35%; padding-bottom:30px;padding-top:30px;"
+        <fieldset 
+          
         >
-          <legend><h2>Login:</h2></legend>
+          <legend><h2 style="color: azure;">Login:</h2></legend>
           <table
             style="margin-left:auto;margin-right:auto;"
             id="tabForm"
@@ -155,6 +216,8 @@
           </table>
         </fieldset>
       </form>
+      <a href="map.htm" style="color: white;font-size: 20px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-style: italic;" id="aman" target="_blank">Contact Us!!</a>
     </div>
+    
   </body>
 </html>
